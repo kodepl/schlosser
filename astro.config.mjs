@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://schlosser.biz',
   output: 'static',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   integrations: [
     tailwind({
       configFile: './tailwind.config.mjs',

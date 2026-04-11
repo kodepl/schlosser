@@ -11,6 +11,16 @@
   ],
   "routes": [
     {
+      "src": "/blog$",
+      "dest": "/blog/",
+      "status": 301
+    },
+    {
+      "src": "/tag/([^/]+)$",
+      "dest": "/tag/$1/",
+      "status": 301
+    },
+    {
       "src": "/sitemap.xml",
       "dest": "/sitemap.xml"
     },
@@ -33,5 +43,6 @@
         }
       ]
     }
-  ]
+  ],
+  "trailingSlash": true
 }
