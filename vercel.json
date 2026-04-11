@@ -1,48 +1,32 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
   "routes": [
     {
       "src": "/blog$",
-      "dest": "/blog/",
-      "status": 301
+      "dest": "/blog/index.html",
+      "status": 200
     },
     {
-      "src": "/tag/([^/]+)$",
-      "dest": "/tag/$1/",
-      "status": 301
+      "src": "/tag/(.*)$",
+      "dest": "/tag/$1/index.html",
+      "status": 200
     },
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
+      "src": "/blog/(.*)$",
+      "dest": "/blog/$1/index.html",
+      "status": 200
     },
     {
-      "src": "/rss.xml",
-      "dest": "/rss.xml"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    }
-  ],
-  "trailingSlash": true
+  ]
 }
