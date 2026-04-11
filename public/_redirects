@@ -1,1 +1,7 @@
-/sitemap.xml /sitemap.xml 200
+http://schlosser.biz/* https://schlosser.biz/:splat 301!
+https://www.schlosser.biz/* https://schlosser.biz/:splat 301!
+
+/blog /blog/ 301
+/tag/* /tag/:splat/ 301
+
+/* /index.html 200
